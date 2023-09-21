@@ -1,37 +1,105 @@
-
-<div class="card">
-  <p-table [value]="products" [tableStyle]="{'min-width': '60rem'}">
-      <ng-template pTemplate="caption">
-          <div class="flex align-items-center justify-content-between">
-              Products
-              <p-button icon="pi pi-refresh"></p-button>
-          </div>
+<!-- MenuBar -->
+<div class="ContainerAll">
+  <div class="card">
+    <p-menubar [model]="items">
+      <ng-template pTemplate="start">
+        <img src="../assets/Icons/Logo.jpg" height="40" class="mr-2" />
       </ng-template>
+      <ng-template pTemplate="end">
+        <input type="text" pInputText placeholder="Search" class="w-full" />
+      </ng-template>
+    </p-menubar>
+  </div>
+  <!-- End_MenuBar -->
+  <div class="card">
+    <p-table [value]="products" [tableStyle]="{'min-width': '60rem'}">
+      <!-- <ng-template pTemplate="caption">
+      <div class="flex align-items-center justify-content-between">
+        Products
+        <p-button icon="pi pi-refresh"></p-button>
+      </div>
+    </ng-template> -->
       <ng-template pTemplate="header">
-          <tr>
-              <th>Name</th>
-              <th>Image</th>
-              <th>Price</th>
-              <th>Category</th>
-              <th>Reviews</th>
-              <th>Status</th>
-          </tr>
+        <tr>
+          <th>Name</th>
+          <th>Image</th>
+          <th>Price</th>
+          <th>Category</th>
+          <th>Reviews</th>
+          <th>Status</th>
+        </tr>
       </ng-template>
       <ng-template pTemplate="body" let-product>
-          <tr>
-              <td>{{product.name}}</td>
-              <td><img [src]="'https://primefaces.org/cdn/primeng/images/demo/product/' + product.image" [alt]="product.name" width="100" class="shadow-4" /></td>
-              <td>{{product.price | currency:'USD'}}</td>
-              <td>{{product.category}}</td>
-              <td><p-rating [ngModel]="product.rating" [readonly]="true" [cancel]="false"></p-rating></td>
-              <!-- <td><p-tag [value]="product.inventoryStatus" [getSeverity]="getSeverity(product.inventoryStatus)"></p-tag></td> -->
-          </tr>
+        <tr>
+          <td>{{product.name}}</td>
+          <td><img [src]="'https://primefaces.org/cdn/primeng/images/demo/product/' + product.image"
+              [alt]="product.name" width="100" class="shadow-4" /></td>
+          <td>{{product.price | currency:'USD'}}</td>
+          <td>{{product.category}}</td>
+          <td><p-rating [ngModel]="product.rating" [readonly]="true" [cancel]="false"></p-rating></td>
+          <!-- <td><p-tag [value]="product.inventoryStatus" [getSeverity]="getSeverity(product.inventoryStatus)"></p-tag></td> -->
+        </tr>
       </ng-template>
       <ng-template pTemplate="summary">
-          <div class="flex align-items-center justify-content-between">
-              In total there are {{products ? products.length : 0 }} products.
-          </div>
+        <div class="flex align-items-center justify-content-between" style="text-align: center; ">
+          In total there are {{products ? products.length : 0 }} products.
+        </div>
       </ng-template>
-  </p-table>
+    </p-table>
+  </div>
+  <!-- <router-outlet></router-outlet> -->
+  <div class="footer">
+    <div class="heading">
+      <img src="../assets/Icons/inFlow_logo_wht.svg" height="40" class="mr-2" />
+    </div>
+    <div class="content">
+      <div class="services">
+        <h4>Product</h4>
+        <p><a href="#">App development</a></p>
+        <p><a href="#">Web development</a></p>
+        <p><a href="#">DevOps</a></p>
+        <p><a href="#">Web designing</a></p>
+      </div>
+      <div class="social-media">
+        <h4>Features</h4>
+        <p>
+          <a href="#"><i class="fab fa-linkedin"></i> Linkedin</a>
+        </p>
+        <p>
+          <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+        </p>
+        <p>
+          <a href="https://github.com/farazc60"><i class="fab fa-github"></i> Github</a>
+        </p>
+        <p>
+          <a href="https://www.facebook.com/codewithfaraz"><i class="fab fa-facebook"></i> Facebook</a>
+        </p>
+        <p>
+          <a href="https://www.instagram.com/codewithfaraz"><i class="fab fa-instagram"></i> Instagram</a>
+        </p>
+      </div>
+      <div class="links">
+        <h4>UseCASES</h4>
+        <p><a href="#">Home</a></p>
+        <p><a href="#">About</a></p>
+        <p><a href="#">Blogs</a></p>
+        <p><a href="#">Contact</a></p>
+      </div>
+      <div class="details">
+        <h4 class="address">Address</h4>
+        <p>
+          Lorem ipsum dolor sit amet consectetur <br />
+          adipisicing elit. Cupiditate, qui!
+        </p>
+        <h4 class="mobile">Mobile</h4>
+        <p><a href="#">+91-12225*****</a></p>
+        <h4 class="mail">Email</h4>
+        <p><a href="#">farazc60@gmail.com</a></p>
+      </div>
+    </div>
+    <footer>
+      <hr />
+      © 2022 codewithFaraz.
+    </footer>
+  </div>
 </div>
-<!-- <router-outlet></router-outlet> -->
